@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="cryptobot_2024_09_26_17:58" author="erin_ds">
+
+        <createTable tableName="subscribes">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="telegram_id" type="bigint">
+            <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="price" type="decimal">
+            </column>
+        </createTable>
+
+        <createIndex tableName="subscribes" indexName="telegram_id_idx">
+            <column name="telegram_id"/>
+        </createIndex>
+
+    </changeSet>
+</databaseChangeLog>
